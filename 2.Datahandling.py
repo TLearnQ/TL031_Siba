@@ -11,20 +11,21 @@ def case(data):
 example={"config":{"Site":"Bangalore","Devices":12}}
 
 cleaned=case(example)
-items = [example["config"]]
+items = [cleaned["config"]]
 group={}
 for i in items:
-    site=i["Site"]
+    site=i["site"]
     if site not in group:
         group[site]=[]
     group[site].append(i)
 
 with open(f"hello.json","w") as f:
-     json.dumps(cleaned , indent=4)
+    json.dump(cleaned,f, indent=4)
 
 
 
 
 print(cleaned)
+print(group)
 
 
