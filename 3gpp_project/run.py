@@ -7,8 +7,8 @@ import requests
 import datetime
 from pythonjsonlogger import jsonlogger
 
-
-class APIResponseError(Exception):
+# Robust API Client Pattern Exception
+class APIResponseError(Exception):       #custom error type for API-related problems
     """
     Custom exception for API 4xx/5xx errors with structured payload support.
     """
@@ -17,15 +17,15 @@ class APIResponseError(Exception):
         self.status_code = status_code
         self.payload = payload
 
-
+# for structured logging
 def setup_logging():
     logger = logging.getLogger()
     
     
-    if logger.hasHandlers():
+    if logger.hasHandlers():        #Prevents duplicate log messages.
         logger.handlers.clear()
         
-    logger.setLevel(logging.INFO)
+    logger.setLevel(logging.INFO)     #Logs INFO and ERROR messages.
     
     formatter = jsonlogger.JsonFormatter('%(asctime)s %(levelname)s %(message)s')
 
@@ -35,15 +35,15 @@ def setup_logging():
     logger.addHandler(file_handler)
 
     
-    stream_handler = logging.StreamHandler()
-    stream_handler.setFormatter(formatter)
-    logger.addHandler(stream_handler)
+    # stream_handler = logging.StreamHandler()
+    # stream_handler.setFormatter(formatter)
+    # logger.addHandler(stream_handler)
 
     return logger
 
-logger = setup_logging()
+logger = setup_logging()     #Creates a global logger used by the entire script.
 
-class RobustClient:
+class RobustClient:          #handel failuer safely instead of crashing
     """
     Demonstrates the required 'Robust API Client Pattern'.
     """
@@ -54,7 +54,7 @@ class RobustClient:
                 raise APIResponseError(f"API Error {response.status_code}", response.status_code,payload=response.text)
                 
             return response.text
-        except requests.RequestException as e:
+        except requests.RequestException as e:      #Prevents crash
             logger.error(f"Network failed: {str(e)}")
             return None
 
@@ -81,7 +81,7 @@ def analyze_apis():
     for file_path in files:
         try:
             with open(file_path, 'r') as f:
-                data = yaml.safe_load(f)
+                data = yaml.safe_load(f)     #dictionary file
 
             stats["files_processed"] += 1
             global_security = data.get('security', [])

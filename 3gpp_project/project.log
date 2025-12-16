@@ -96,3 +96,27 @@
 {"asctime": "2025-12-13 13:31:02,296", "levelname": "INFO", "message": "Parsed file successfully", "taskName": null, "file": "TS29558_Eees_AppClientInformation.yaml"}
 {"asctime": "2025-12-13 13:31:02,297", "levelname": "INFO", "message": "Metadata saved to metadata.json", "taskName": null}
 {"asctime": "2025-12-13 13:31:02,298", "levelname": "INFO", "message": "Summary report appended to README.txt", "taskName": null}
+{"asctime": "2025-12-15 11:37:49,535", "levelname": "INFO", "message": "Starting analysis", "taskName": null, "file_count": 5}
+{"asctime": "2025-12-15 11:37:49,570", "levelname": "INFO", "message": "Parsed file successfully", "taskName": null, "file": "TS29556_Neasdf_DNSContext.yaml"}
+{"asctime": "2025-12-15 11:37:49,588", "levelname": "INFO", "message": "Parsed file successfully", "taskName": null, "file": "TS29557_Naf_ProSe.yaml"}
+{"asctime": "2025-12-15 11:37:49,606", "levelname": "INFO", "message": "Parsed file successfully", "taskName": null, "file": "TS29558_Eecs_ACREvents.yaml"}
+{"asctime": "2025-12-15 11:37:49,633", "levelname": "INFO", "message": "Parsed file successfully", "taskName": null, "file": "TS29558_Eecs_EESRegistration.yaml"}
+{"asctime": "2025-12-15 11:37:49,657", "levelname": "INFO", "message": "Parsed file successfully", "taskName": null, "file": "TS29558_Eees_AppClientInformation.yaml"}
+{"asctime": "2025-12-15 11:37:49,659", "levelname": "INFO", "message": "Metadata saved to metadata.json", "taskName": null}
+{"asctime": "2025-12-15 11:37:49,659", "levelname": "INFO", "message": "Summary report appended to README.txt", "taskName": null}
+{"asctime": "2025-12-15 11:38:35,093", "levelname": "INFO", "message": "Starting analysis", "taskName": null, "file_count": 5}
+{"asctime": "2025-12-15 11:38:35,127", "levelname": "INFO", "message": "Parsed file successfully", "taskName": null, "file": "TS29556_Neasdf_DNSContext.yaml"}
+{"asctime": "2025-12-15 11:38:35,144", "levelname": "INFO", "message": "Parsed file successfully", "taskName": null, "file": "TS29557_Naf_ProSe.yaml"}
+{"asctime": "2025-12-15 11:38:35,161", "levelname": "INFO", "message": "Parsed file successfully", "taskName": null, "file": "TS29558_Eecs_ACREvents.yaml"}
+{"asctime": "2025-12-15 11:38:35,187", "levelname": "INFO", "message": "Parsed file successfully", "taskName": null, "file": "TS29558_Eecs_EESRegistration.yaml"}
+{"asctime": "2025-12-15 11:38:35,210", "levelname": "INFO", "message": "Parsed file successfully", "taskName": null, "file": "TS29558_Eees_AppClientInformation.yaml"}
+{"asctime": "2025-12-15 11:38:35,211", "levelname": "INFO", "message": "Metadata saved to metadata.json", "taskName": null}
+{"asctime": "2025-12-15 11:38:35,211", "levelname": "INFO", "message": "Summary report appended to README.txt", "taskName": null}
+{"asctime": "2025-12-15 12:55:58,465", "levelname": "INFO", "message": "Starting analysis", "taskName": null, "file_count": 5}
+{"asctime": "2025-12-15 12:55:58,501", "levelname": "INFO", "message": "Parsed file successfully", "taskName": null, "file": "TS29556_Neasdf_DNSContext.yaml"}
+{"asctime": "2025-12-15 12:55:58,518", "levelname": "INFO", "message": "Parsed file successfully", "taskName": null, "file": "TS29557_Naf_ProSe.yaml"}
+{"asctime": "2025-12-15 12:55:58,535", "levelname": "INFO", "message": "Parsed file successfully", "taskName": null, "file": "TS29558_Eecs_ACREvents.yaml"}
+{"asctime": "2025-12-15 12:55:58,561", "levelname": "INFO", "message": "Parsed file successfully", "taskName": null, "file": "TS29558_Eecs_EESRegistration.yaml"}
+{"asctime": "2025-12-15 12:55:58,584", "levelname": "INFO", "message": "Parsed file successfully", "taskName": null, "file": "TS29558_Eees_AppClientInformation.yaml"}
+{"asctime": "2025-12-15 12:55:58,585", "levelname": "INFO", "message": "Metadata saved to metadata.json", "taskName": null}
+{"asctime": "2025-12-15 12:55:58,586", "levelname": "INFO", "message": "Summary report appended to README.txt", "taskName": null}
