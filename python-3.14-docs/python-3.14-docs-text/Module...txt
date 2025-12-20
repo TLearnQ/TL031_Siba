@@ -1,0 +1,299 @@
+
+------------------------awk----------------------------------
+
+
+| Task                   | Command                    |                                
+| ---------------------- | -------------------------- |
+| Print all lines        | `awk '{print}' file`       |
+| Print full line        | `awk '{print $0}' file`    |
+| Print 1st column       | `awk '{print $1}' file`    |
+| Print multiple columns | `awk '{print $1,$3}' file` |
+| Print line number      | `awk '{print NR,$0}' file` |
+| Print last column      | `awk '{print $NF}' file`   |
+| Task         | Command                             |
+| ------------ | ----------------------------------- |
+| Print line 5 | `awk 'NR==5 {print}' file`          |
+| Print range  | `awk 'NR>=2 && NR<=6 {print}' file` |
+| Even lines   | `awk 'NR%2==0 {print}' file`        |
+| Odd lines    | `awk 'NR%2!=0 {print}' file`        |
+| Task          | Command                       |
+| ------------- | ----------------------------- |
+| Match pattern | `awk '/ERROR/ {print}' file`  |
+| Not match     | `awk '!/ERROR/ {print}' file` |
+| Pattern range | `awk '/A/,/B/' file`          |
+| Task                 | Command                         |
+| -------------------- | ------------------------------- |
+| Count lines          | `awk 'END{print NR}' file`      |
+| Count using variable | `awk '{c++} END{print c}' file` |
+| Task            | Command                                     |
+| --------------- | ------------------------------------------- |
+| Sum column      | `awk '{sum+=$3} END{print sum}' file`       |
+| Conditional sum | `awk '$3>50 {sum+=$3} END{print sum}' file` |
+| Question          | Answer        |
+| ----------------- | ------------- |
+| Print 1st column  | `{print $1}`  |
+| Print last field  | `{print $NF}` |
+| Line number       | `NR`          |
+| Number of fields  | `NF`          |
+| Default action    | `print`       |
+| Default separator | space         |
+
+
+
+----------------------------sed--------------------------------
+
+| Task                     | Command                    |
+| ------------------------ | -------------------------- |
+| Replace first occurrence | `sed 's/old/new/' file`    |
+| Replace all occurrences  | `sed 's/old/new/g' file`   |
+| Replace & save file      | `sed -i 's/old/new/' file` |
+| Task                 | Command                    |
+| -------------------- | -------------------------- |
+| Print all lines      | `sed -n 'p' file`          |
+| Print line 5         | `sed -n '5p' file`         |
+| Print range 5–10     | `sed -n '5,10p' file`      |
+| Print matching lines | `sed -n '/pattern/p' file` |
+| Task           | Command                 |
+| -------------- | ----------------------- |
+| Delete line 5  | `sed '5d' file`         |
+| Delete range   | `sed '5,10d' file`      |
+| Delete pattern | `sed '/pattern/d' file` |
+| Task                   | Command              |
+| ---------------------- | -------------------- |
+| Insert before line 1   | `sed '1i text' file` |
+| Append after last line | `sed '$a text' file` |
+| Task         | Command                |
+| ------------ | ---------------------- |
+| Add at start | `sed 's/^/text/' file` |
+| Add at end   | `sed 's/$/text/' file` |
+| Task          | Command                 |
+| ------------- | ----------------------- |
+| Remove digits | `sed 's/[0-9]//g' file` |
+| Remove spaces | `sed 's/ //g' file`     |
+
+
+---------------------------grep---------------------------------------
+|          Command         |       Description             |          Example               |
+| ------------------------ | ----------------------------- | ------------------------------ |
+| `grep "pattern" file`    | Search for pattern in a file  | `grep "error" logfile.txt`     |
+| `grep -i "pattern" file` | Case-insensitive search       | `grep -i "warning" syslog`     |
+| `grep -r "pattern" dir/` | Recursive search in directory | `grep -r "fail" /var/log`      |
+| `grep -n "pattern" file` | Show line numbers             | `grep -n "timeout" config.txt` |
+| `grep -v "pattern" file` | Invert match (exclude)        | `grep -v "INFO" app.log`       |
+| `grep -w "word" file`    | Match whole word only         | `grep -w "cat" animals.txt`    |
+| `grep -l "pattern" *`    | Show file names only          | `grep -l "main" *.c`           |
+| `grep -c "pattern" file` | Count matching lines          | `grep -c "404" access.log`     |
+|                                                                                             |
+| ---------------------------- | --------------------------- | ------------------------------ |
+| `grep -A NUM "pattern" file` | Show NUM lines after match  | `grep -A 3 "error" log.txt`    |
+| `grep -B NUM "pattern" file` | Show NUM lines before match | `grep -B 2 "panic" kernel.log` |
+| `grep -C NUM "pattern" file` | Show before & after         | `grep -C 2 "failed" syslog`    |
+|                                                                                               |                
+| ----------------------- | ----------------------- | ------------------------ | -------------- |
+| `grep -E "regex" file`  | Extended regex (egrep)  | `grep -E "cat            | dog" pets.txt` |
+| `grep -F "string" file` | Fixed string (no regex) | `grep -F "a*b" file.txt` |                |
+
+
+
+journalctl-system log
+journalctl -f --growth of file
+journalctl -u ---view logs for a specific service
+
+
+
+top- realtime cpu & memory usage
+
+ps -ef --process status
+
+netstat -tulnp  --network connection
+
+-------------------------------------------------------------------------------------------------------
+
+ip.version == 4   ->ipv4 endpoint check (ws)
+
+stress --cpu 3 --timeout 20
+sysbench cpu run
+
+sysbench cpu --cpu-max-prime=20000 run
+
+
+sysbench fileio --file-total-size=1G prepare
+sysbench fileio   --file-total-size=1G   --file-test-mode=seqwr   run
+sysbench fileio cleanup
+
+stress --cpu 2  |top
+
+
+fio --name=test --rw=write --size=1G   // remove test ///used fio for validate disk performance
+
+------------------------------------------------------------------------------------------------------------
+
+create ns
+-----------
+sudo ip netns add hostA
+sudo ip netns add hostB
+
+sudo ip netns exec hostA ip link set lo up
+sudo ip netns exec hostB ip link set lo up
+
+ip netns list
+
+pnt-pnt vrtl-link
+--------------------
+sudo ip link add vethA type veth peer name vethB
+
+Move Interfaces to Namespaces----
+sudo ip link set vethA netns hostA
+sudo ip link set vethB netns hostB
+
+Assign IP Addresses-----
+sudo ip netns exec hostA ip addr add 10.0.0.1/24 dev vethA
+sudo ip netns exec hostB ip addr add 10.0.0.2/24 dev vethB
+
+sudo ip netns exec hostA ip link set vethA up
+sudo ip netns exec hostB ip link set vethB up
+
+sudo ip netns exec hostA ping -c 3 10.0.0.2
+
+
+delete
+----------------------------
+sudo ip netns del hostA
+sudo ip netns del host2
+sudo ip netns del router
+sudo ip link del veth1
+sudo ip link del veth-wan
+sudo ip link del veth-wan2
+
+---------------------------------------------------------------------------------------
+import requests
+import json
+
+TOKEN="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"
+
+headers ={
+    "Authorization": f"Bearer {TOKEN}",
+    "Accept": "application/vnd.github+json"
+}
+
+url="https://api.github.com/repos/siba02/TL_Sibu"       #https://api.github.com/users/siba02
+response = requests.get(url, headers=headers)
+
+print("Status Code:", response.status_code)
+print("Response:")
+print(json.dumps(response.json(),indent=4))  
+
+-----------------composite---------------------
+
+import requests
+import json
+
+APIkey = "42c479f3e789ede5b767704afa6db564"
+
+
+c=0
+
+while c<=5:
+    
+        url = f"https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid={APIkey}"
+
+        response = requests.get(url)
+
+        print(c,"status_code:",response.status_code)
+        c+=1
+        # print(json.dumps(response.json(),indent=2))
+
+        if response.status_code != 200 or c>5:
+            print("rate limit exceeded")
+            break
+        # print(json.dumps(response.json(),indent=2))
+
+
+
+--------------------------crud-----------------------
+import requests
+
+BASE_URL = "https://jsonplaceholder.typicode.com/posts"
+
+# ---------------- CREATE ----------------
+create_data = {
+    "title": "Hello",
+    "body": "Learning CRUD",
+    "userId": 1,
+    "id":1
+}
+
+create_res = requests.post(BASE_URL, json=create_data)
+print("\nCREATE (POST)")
+print(create_res.json())
+
+
+# ---------------- READ ----------------
+read_res = requests.get(f"{BASE_URL}/1")
+print("\nREAD (GET)")
+print(read_res.json())
+
+
+# ---------------- UPDATE (PUT - full update) ----------------
+update_data = {
+    "title": "Hello - Updated",
+    "body": "Learning CRUD - Updated using PUT",
+    "userId": 1
+}
+
+update_res = requests.put(f"{BASE_URL}/1", json=update_data)
+print("\nUPDATE (PUT)")
+print(update_res.json())
+
+
+# ---------------- PATCH (partial update) ----------------
+patch_data = {
+    "title": "Hello - Patched"
+}
+
+patch_res = requests.patch(f"{BASE_URL}/1", json=patch_data)
+print("\nPATCH (Partial Update)")
+print(patch_res.json())
+
+
+# ---------------- DELETE ----------------
+delete_res = requests.delete(f"{BASE_URL}/1")
+print("\nDELETE")
+print("Status Code:", delete_res.status_code)
+
+
+
+
+params = {
+    "api_key": API_KEY
+}
+
+endpoints = {
+    "POST /posts",
+    "GET /posts/1",
+    "PUT /posts/1",
+    "PATCH /posts/1",
+    "DELETE /posts/1"
+}
+
+unique_paths = {e.split(" ", 1)[1] for e in endpoints}
+
+print("Total endpoints:", len(unique_paths))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
